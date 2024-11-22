@@ -93,13 +93,54 @@ const brandsData = [
 ];
 
 const teamData = [
-  { id: 1, name: 'Садыков Дамир', position: 'CEO', image: './images/avon.jpg' },
-  { id: 2, name: 'Садыков Дамир', position: 'Sales Director', image: '/api/placeholder/150/150' },
+  { id: 1, name: 'Садыков Дамир', position: 'CEO', image: './images/team/Damir.jpg' },
+  { id: 2, name: 'Садыков Дамир', position: 'Sales Director', image: './images/team/Damir.jpg' },
+  { id: 3, name: 'Садыков Дамир', position: 'Sales Director', image: './images/team/Damir.jpg' },
 ];
 
 const warehousesData = [
-  { id: 1, name: 'Центральный склад', address: 'ул. Примерная, 1', image: '/api/placeholder/300/200' },
-  { id: 2, name: 'Северный склад', address: 'ул. Складская, 5', image: '/api/placeholder/300/200' },
+  {
+    id: 1,
+    name: 'Центральный склад',
+    area: '400м²',
+    features: ['Температурный контроль', 'Современная система вентиляции', 'Круглосуточная охрана'],
+    image: './images/warehouses/warehouse1.jpg'
+  },
+  {
+    id: 2,
+    name: 'Склад косметической продукции',
+    area: '300м²',
+    features: ['Специальные условия хранения', 'Контроль влажности', 'Система учета товаров'],
+    image: './images/warehouses/warehouse3.jpg'
+  },
+  {
+    id: 3,
+    name: 'Продуктовый склад',
+    area: '350м²',
+    features: ['Холодильные камеры', 'Система FIFO', 'Строгий температурный режим'],
+    image: './images/warehouses/warehouse2.jpg'
+  },
+  {
+    id: 4,
+    name: 'Распределительный центр',
+    area: '250м²',
+    features: ['Погрузочная зона', 'Автоматизированная сортировка', 'Экспресс-доставка'],
+    image: './images/warehouses/warehouse6.jpg'
+  },
+  {
+    id: 5,
+    name: 'Транзитный склад',
+    area: '150м²',
+    features: ['Кросс-докинг', 'Быстрая обработка грузов', 'Электронный документооборот'],
+    image: './images/warehouses/warehouse4.jpg'
+  },
+  {
+    id: 6,
+    name: 'Резервный склад',
+    area: '150м²',
+    features: ['Резервные мощности', 'Гибкое использование', 'Система резервирования'],
+    image: './images/warehouses/warehouse5.jpg'
+  }
 ];
 
 const deliveryData = {
@@ -242,100 +283,110 @@ const SellerWebsite = () => {
           </motion.div>
         );
 
-      case 'Команда':
-        return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
-                Наша Команда
-              </h2>
-              <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-                Профессионалы, которые делают наш бизнес успешным
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {teamData.map((member, index) => (
-                <motion.div
-                  key={member.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group"
-                >
-                  <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-200/50 to-slate-300/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative z-10">
-                      <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-white shadow-md">
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
-                        />
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-800">{member.name}</h3>
-                      <p className="mt-2 text-slate-600">{member.position}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        );
-
-      case 'Склад':
-        return (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
-                Наши Склады
-              </h2>
-              <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-                Современные складские помещения для хранения продукции
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {warehousesData.map((warehouse, index) => (
-                <motion.div
-                  key={warehouse.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group"
-                >
-                  <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 shadow-lg transition-all duration-300 hover:shadow-xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-200/50 to-slate-300/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative z-10">
-                      <div className="h-[300px] overflow-hidden">
-                        <img 
-                          src={warehouse.image} 
-                          alt={warehouse.name} 
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                        />
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-slate-800">{warehouse.name}</h3>
-                        <div className="mt-2 flex items-center text-slate-600">
-                          <MapPin className="w-4 h-4 mr-2" />
-                          <span>{warehouse.address}</span>
+        case 'Команда':
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-8"
+            >
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
+                  Наша Команда
+                </h2>
+                <p className="mt-4 text-slate-600 max-w-4xl mx-auto">
+                  Наша команда — это профессиональные торговые представители, которые воплощают ценности нашего бизнеса. Каждый из них обладает глубоким знанием продукции, индивидуальным подходом к клиентам и стремлением к достижению результатов. Узнайте больше о людях, которые стоят за нашим успехом, и доверьтесь профессионалам, которые помогут вам найти оптимальные решения для вашего бизнеса.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {teamData.map((member, index) => (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group"
+                  >
+                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-200/50 to-slate-300/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative z-10">
+                        <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-white shadow-md">
+                          <img 
+                            src={member.image} 
+                            alt={member.name} 
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                          />
                         </div>
+                        <h3 className="text-xl font-bold text-slate-800">{member.name}</h3>
+                        <p className="mt-2 text-slate-600">{member.position}</p>
                       </div>
                     </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          );
+
+          case 'Склад':
+            return (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-8"
+              >
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent mb-6 text-center">
+                    Наши Складские Помещения
+                  </h2>
+                  <div className="text-slate-600 max-w-4xl mx-auto space-y-4 text-center">
+                    <p>
+                      Наша компания располагает современным складским комплексом общей площадью 1600м², оборудованным по последним стандартам логистики и хранения. Складские помещения оснащены современными системами климат-контроля, вентиляции и безопасности, что гарантирует сохранность всех типов продукции.
+                    </p>
+                    <div>
+                      <p className="mb-2">Особенности наших складов:</p>
+                      <ul className="list-none space-y-2">
+                        <li>Специализированные зоны хранения для различных категорий товаров</li>
+                        <li>Автоматизированная система учета и контроля товарных запасов</li>
+                        <li>Профессиональное складское оборудование и техника</li>
+                        <li>Строгое соблюдение температурного режима и влажности</li>
+                        <li>Круглосуточная охрана и видеонаблюдение</li>
+                        <li>Удобные подъездные пути и зоны погрузки-разгрузки</li>
+                      </ul>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {warehousesData.map((warehouse) => (
+          <motion.div
+            key={warehouse.id}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: warehouse.id * 0.1 }}
+            className="group relative aspect-square overflow-hidden rounded-xl bg-slate-100"
+          >
+            <img
+              src={warehouse.image}
+              alt={warehouse.name}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-white text-sm font-medium">
+                  {warehouse.name}
+                </p>
+                <p className="text-white/80 text-xs">
+                  {warehouse.area}
+                </p>
+              </div>
             </div>
           </motion.div>
-        );
+        ))}
+      </div>
+    </motion.div>
+  );
 
       case 'Доставка':
         return (
