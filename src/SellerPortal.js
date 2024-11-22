@@ -80,13 +80,13 @@ const brandsData = [
   {
     id: 13,
     name: 'Belfood',
-    image: 'https://belfood.rs/wp-content/uploads/2020/11/belfood-logo2.png',
+    image: './images/brands/belfood-logo2.png',
     description: 'Натуральные продукты питания высокого качества для здорового образа жизни.'
   },
   {
     id: 14,
     name: 'Hochland',
-    image: 'https://www.hochland-group.com/assets/images/layout/hochland-logo.svg',
+    image: './images/brands/hochland.svg',
     description: 'Натуральные сыры и молочные продукты высокого качества для всей семьи, сочетающими традиции и инновации в производстве.'
   },
 

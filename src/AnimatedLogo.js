@@ -6,38 +6,6 @@ const AnimatedLogo = () => {
 
   useEffect(() => {
     const textElements = logoRef.current.querySelectorAll('text tspan');
-    // const paths = logoRef.current.querySelectorAll('path');
-    
-    const initialAnimation = anime.timeline({
-      easing: 'cubicBezier(0.645, 0.045, 0.355, 1.000)'
-    })
-    .add({
-      targets: '.logo-line',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      opacity: [0, 1],
-      duration: 1500,
-      delay: anime.stagger(100),
-      easing: 'easeOutQuart'
-    })
-    .add({
-      targets: '.LogoGlobalFoodsCenter_svg__cls-6',
-      opacity: [0, 1],
-      translateY: [-30, 0],
-      rotateX: [-40, 0],
-      scale: [0.8, 1],
-      duration: 1200,
-      delay: anime.stagger(150),
-      easing: 'easeOutExpo'
-    }, '-=800')
-    .add({
-      targets: '.LogoGlobalFoodsCenter_svg__cls-4',
-      opacity: [0, 1],
-      translateY: [-20, 0],
-      scale: [0.95, 1],
-      duration: 1000,
-      delay: anime.stagger(30),
-      easing: 'easeOutQuint'
-    }, '-=1000');
 
     // Добавляем новую анимацию мерцания букв
     const letterFlashAnimation = () => {
