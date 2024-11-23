@@ -4,6 +4,20 @@ import { Menu, X, MapPin, Phone, Mail } from 'lucide-react';
 import AnimatedLogo from './AnimatedLogo';
 import BrandBanner from './components/BrandBanner';
 
+const directorData = {
+  name: "Юлдашев Мансур Шавкатович",
+  position: "Генеральный директор",
+  image: "./images/team/Damir.jpg", // Замените на реальный путь к фото директора
+  description: "Основатель и генеральный директор компании с более чем 15-летним опытом в сфере дистрибуции. Под его руководством компания стала одним из ведущих дистрибьюторов в Хорезмской области.",
+  achievements: [
+    "Построение эффективной системы дистрибуции в регионе",
+    "Развитие партнерских отношений с ведущими брендами",
+    "Создание профессиональной команды из более 50 сотрудников",
+    "Организация современного складского комплекса площадью 1600м²"
+  ],
+  quote: "Наша миссия - обеспечивать качественными товарами каждый уголок Хорезмской области, создавая ценность для наших партнеров и клиентов."
+};
+
 const brandsData = [
   { 
     id: 1, 
@@ -145,8 +159,21 @@ const warehousesData = [
 
 const deliveryData = {
   title: 'Наша доставка',
-  description: 'Мы осуществляем доставку по всей Хорезмской области',
-  methods: ['Курьерская доставка', 'Почта BTS', 'Пункты выдачи']
+  description: 'Мы осуществляем доставку по всей Хорезмской области, у нас имеется 11 доставщиков',
+  methods: [
+    {
+      id: 1,
+      name: 'Курьерская доставка',
+      // description: 'Быстрая и надежная доставка до двери',
+      image: './images/delivery/damas.png'
+    },
+    {
+      id: 2,
+      name: 'Почта BTS',
+      // description: 'Доставка через надежного партнера',
+      image: './images/delivery/cargo.png'
+    }
+  ]
 };
 
 const BackgroundDecorator = () => (
@@ -168,7 +195,7 @@ const DynamicPatternOverlay = () => (
 );
 
 const SellerWebsite = () => {
-  const [activeTab, setActiveTab] = useState('Бренды');
+  const [activeTab, setActiveTab] = useState('Главная');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState('cosmetics');
@@ -196,6 +223,75 @@ const SellerWebsite = () => {
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'Главная':
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="space-y-12 py-8"
+      >
+        <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
+            Добро пожаловать в{' '}
+          </span>
+          <span className="bg-gradient-to-r from-emerald-600 to-teal-700 bg-clip-text text-transparent">
+            Global Foods Center
+          </span>
+        </h2>
+          <p className="text-slate-600 text-lg max-w-4xl mx-auto">
+            Мы - ведущая дистрибьюторская компания в Хорезмской области, специализирующаяся на поставках косметической продукции и продуктов питания.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="group"
+          >
+            <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 shadow-lg transition-all duration-300 hover:shadow-xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-200/50 to-slate-300/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative z-10">
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                  <div className="w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full border-4 border-white shadow-xl">
+                    <img 
+                      src={directorData.image}
+                      alt={directorData.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-3xl font-bold text-slate-800 mb-4">{directorData.name}</h3>
+                    <p className="text-xl text-slate-600 mb-6">{directorData.position}</p>
+                    <p className="text-slate-600 mb-8 text-lg">{directorData.description}</p>
+                    
+                    <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 mb-8">
+                      <h4 className="text-xl font-semibold text-slate-800 mb-4">Достижения:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {directorData.achievements.map((achievement, index) => (
+                          <div key={index} className="flex items-center space-x-2">
+                            <div className="w-2 h-2 bg-slate-800 rounded-full"></div>
+                            <p className="text-slate-600">{achievement}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <blockquote className="text-lg italic text-slate-700 border-l-4 border-slate-300 pl-4">
+                      {directorData.quote}
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+
       case 'Бренды':
         return (
           <motion.div
@@ -388,46 +484,56 @@ const SellerWebsite = () => {
     </motion.div>
   );
 
-      case 'Доставка':
-        return (
+  case 'Доставка':
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="space-y-8"
+    >
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
+          {deliveryData.title}
+        </h2>
+        <p className="mt-4 text-slate-600 max-w-3xl mx-auto">
+          {deliveryData.description}
+        </p>
+        <p className="mt-4 text-slate-600 max-w-3xl mx-auto">
+          Наша компания предлагает несколько удобных способов доставки товаров. Мы работаем с надежными партнерами и собственной службой доставки, чтобы обеспечить быструю и безопасную транспортировку вашего заказа.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+        {deliveryData.methods.map((method, index) => (
           <motion.div
+            key={method.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
+            transition={{ delay: index * 0.1 }}
+            className="group"
           >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
-                {deliveryData.title}
-              </h2>
-              <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-                {deliveryData.description}
-              </p>
-            </div>
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl p-8 shadow-lg">
-                <div className="grid gap-6">
-                  {deliveryData.methods.map((method, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-800rounded-full flex items-center justify-center text-white">
-                        {index + 1}
-                      </div>
-                      <div className="flex-grow">
-                        <span className="text-lg font-semibold text-slate-800">{method}</span>
-                      </div>
-                    </motion.div>
-                  ))}
+            <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-200/50 to-slate-300/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative z-10">
+                <div className="aspect-[16/9] md:aspect-[16/10] lg:aspect-[16/9] overflow-hidden rounded-xl mb-6">
+                  <img
+                    src={method.image}
+                    alt={method.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
+                <h3 className="text-xl font-bold text-slate-800">{method.name}</h3>
+                {method.description && (
+                  <p className="mt-2 text-slate-600">{method.description}</p>
+                )}
               </div>
             </div>
           </motion.div>
-        );
+        ))}
+      </div>
+    </motion.div>
+  );
 
       default:
         return null;
@@ -443,14 +549,14 @@ const SellerWebsite = () => {
       <header 
         className={`w-full sticky top-0 z-50 transition-all duration-300 ${
           scrolled 
-          ? 'bg-white/80 backdrop-blur-lg shadow-md' 
-          : 'bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200'
+          ? 'bg-white/90 backdrop-blur-lg shadow-lg'
+          : 'bg-gradient-to-r from-slate-100 to-white'
         }`}
       >
-        <div className="w-full px-4 py-4 relative">
+        <div className="w-full px-6 py-4 relative">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center justify-start">
-              <div className="flex items-center justify-start">
+              <div className="flex items-center justify-between w-full">
                 <AnimatedLogo />
               </div>
               
@@ -463,14 +569,14 @@ const SellerWebsite = () => {
               </button>
 
               <nav className="hidden md:flex space-x-6 ml-8">
-                {['Бренды', 'Команда', 'Склад', 'Доставка'].map((tab) => (
+                {['Главная', 'Бренды', 'Команда', 'Склад', 'Доставка'].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => handleTabClick(tab)}
-                    className={`px-4 py-2 rounded-lg transition-all duration-300
+                    className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300
                       ${activeTab === tab 
-                        ? 'style-active-tab transform hover:scale-105' 
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-400/20'
+                        ? 'bg-slate-800 text-white shadow-md transform hover:scale-105 text-lg' 
+                        : 'text-slate-700 hover:bg-slate-100 text-lg'
                       }`}
                   >
                     {tab}
@@ -502,7 +608,7 @@ const SellerWebsite = () => {
               </button>
 
               <div className="flex flex-col space-y-2 mt-8">
-                {['Бренды', 'Команда', 'Склад', 'Доставка'].map((tab) => (
+                {['Главная', 'Бренды', 'Команда', 'Склад', 'Доставка'].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => handleTabClick(tab)}
@@ -569,11 +675,10 @@ const SellerWebsite = () => {
       {/* Styles */}
       <style jsx global>{`
         .style-active-tab {
-          background: linear-gradient(135deg, #475569 0%, #64748b 100%);
-          color: white;
-          filter: drop-shadow(0 0 8px rgba(71, 85, 105, 0.3));
-          transform: translateY(-1px);
-        }
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    filter: drop-shadow(0 0 8px rgba(30, 41, 59, 0.3));
+  }
 
         html {
           scroll-behavior: smooth;
