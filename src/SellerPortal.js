@@ -107,9 +107,9 @@ const brandsData = [
 ];
 
 const teamData = [
-  { id: 1, name: 'Садыков Дамир', position: 'CEO', image: './images/team/Damir.jpg' },
-  { id: 2, name: 'Садыков Дамир', position: 'Sales Director', image: './images/team/Damir.jpg' },
-  { id: 3, name: 'Садыков Дамир', position: 'Sales Director', image: './images/team/Damir.jpg' },
+  { id: 1, name: 'Садыков Дамир Наильевич', position: 'Супервайзер AVON', image: './images/team/Damir.jpg' },
+  { id: 2, name: 'Джуманазаров Гулом Озадович', position: 'Супервайзер Compliment', image: './images/team/Gulam.jpg' },
+  { id: 3, name: 'Клычев Казибек Улугбекович', position: 'Супервайзер Ehrmann', image: './images/team/supervisor3.jpg' },
 ];
 
 const warehousesData = [
