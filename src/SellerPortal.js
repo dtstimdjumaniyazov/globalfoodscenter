@@ -5,7 +5,7 @@ import AnimatedLogo from './AnimatedLogo';
 import BrandBanner from './components/BrandBanner';
 
 const directorData = {
-  name: "Юлдашев Мансур Шавкатович",
+  name: "Юлдашев Мансур Зарипаевич",
   position: "Генеральный директор",
   image: "./images/team/Damir.jpg", // Замените на реальный путь к фото директора
   description: "Основатель и генеральный директор компании с более чем 15-летним опытом в сфере дистрибуции. Под его руководством компания стала одним из ведущих дистрибьюторов в Хорезмской области.",
@@ -103,6 +103,18 @@ const brandsData = [
     image: './images/brands/hochland.svg',
     description: 'Натуральные сыры и молочные продукты высокого качества для всей семьи, сочетающими традиции и инновации в производстве.'
   },
+  {
+    id: 15,
+    name: 'Erhmann',
+    image: './images/brands/Ehrmann.png',
+    description: 'Производитель натуральных йогуртов, десертов и творожных изделий высокого качества для всей семьи.'
+  },
+  {
+    id: 16,
+    name: 'Нежный',
+    image: './images/brands/nezhny.png',
+    description: 'Молочные продукты с нежным вкусом и высоким качеством для вашего здорового рациона.'
+  },
 
 ];
 
@@ -125,35 +137,35 @@ const warehousesData = [
     name: 'Склад косметической продукции',
     area: '300м²',
     features: ['Специальные условия хранения', 'Контроль влажности', 'Система учета товаров'],
-    image: './images/warehouses/warehouse3.jpg'
+    image: './images/warehouses/warehouse2.jpg'
   },
   {
     id: 3,
     name: 'Продуктовый склад',
     area: '350м²',
     features: ['Холодильные камеры', 'Система FIFO', 'Строгий температурный режим'],
-    image: './images/warehouses/warehouse2.jpg'
+    image: './images/warehouses/warehouse3.jpg'
   },
   {
     id: 4,
     name: 'Распределительный центр',
     area: '250м²',
     features: ['Погрузочная зона', 'Автоматизированная сортировка', 'Экспресс-доставка'],
-    image: './images/warehouses/warehouse6.jpg'
+    image: './images/warehouses/warehouse4.jpg'
   },
   {
     id: 5,
     name: 'Транзитный склад',
     area: '150м²',
     features: ['Кросс-докинг', 'Быстрая обработка грузов', 'Электронный документооборот'],
-    image: './images/warehouses/warehouse4.jpg'
+    image: './images/warehouses/warehouse5.jpg'
   },
   {
     id: 6,
     name: 'Резервный склад',
     area: '150м²',
     features: ['Резервные мощности', 'Гибкое использование', 'Система резервирования'],
-    image: './images/warehouses/warehouse5.jpg'
+    image: './images/warehouses/warehouse6.jpg'
   }
 ];
 
@@ -163,13 +175,19 @@ const deliveryData = {
   methods: [
     {
       id: 1,
-      name: 'Курьерская доставка',
+      name: 'Damas',
       // description: 'Быстрая и надежная доставка до двери',
       image: './images/delivery/damas.png'
     },
     {
       id: 2,
-      name: 'Почта BTS',
+      name: 'Labo',
+      // description: 'Доставка через надежного партнера',
+      image: './images/delivery/labo.png'
+    },
+    {
+      id: 3,
+      name: 'Cargo',
       // description: 'Доставка через надежного партнера',
       image: './images/delivery/cargo.png'
     }
@@ -344,7 +362,7 @@ const SellerWebsite = () => {
                     .filter(brand => 
                       activeCategory === 'cosmetics' 
                         ? [1,2,3,4,5,6,7,8,9].includes(brand.id)
-                        : [10,11,12,13,14].includes(brand.id)
+                        : [10,11,12,13,14,15,16].includes(brand.id)
                     )
                     .map((brand, index) => (
                       <motion.div
