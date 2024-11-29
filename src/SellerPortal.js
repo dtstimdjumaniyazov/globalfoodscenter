@@ -5,7 +5,7 @@ import AnimatedLogo from './AnimatedLogo';
 import BrandBanner from './components/BrandBanner';
 
 const directorData = {
-  name: "Юлдашев Мансур Зарипаевич",
+  name: "Юсупов Мансур Зарипаевич",
   position: "Генеральный директор",
   image: "./images/team/Damir.jpg", // Замените на реальный путь к фото директора
   description: "Основатель и генеральный директор компании с более чем 15-летним опытом в сфере дистрибуции. Под его руководством компания стала одним из ведущих дистрибьюторов в Хорезмской области.",
