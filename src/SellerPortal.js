@@ -175,7 +175,7 @@ const deliveryData = {
   methods: [
     {
       id: 1,
-      name: 'Damas',
+      name: 'Damas', 
       // description: 'Быстрая и надежная доставка до двери',
       image: './images/delivery/damas.png'
     },
