@@ -70,7 +70,7 @@ const brandsData = [
   {
     id: 9,
     name: 'LIKATO PROFESSIONAL',
-    image: 'https://royalsamples.ru/upload/medialibrary/31c/log-chern.png',
+    image: './images/brands/likato.png',
     description: 'Профессиональная косметика для волос и ногтей с инновационными формулами из Италии.'
   },
   {
